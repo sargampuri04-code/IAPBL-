@@ -103,10 +103,7 @@ st.markdown(f"""
 # ── Load data ────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_excel(
-        "YouTube_Dashboard-_DA.xlsx",
-        sheet_name="YouTube_Shorts_Engagement_and_G"
-    )
+   df = pd.read_csv("data.csv")
     df = df.dropna(subset=["Video_ID"])
     df["Engagement_Rate_%"] = pd.to_numeric(df["Engagement_Rate_%"], errors="coerce")
     df["Views_Per_Day"]     = pd.to_numeric(df["Views_Per_Day"], errors="coerce")
